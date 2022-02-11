@@ -1,0 +1,5 @@
+name: NoodleGeneration
+version: '${project.version}'
+main: me.vojtasara.noodlegeneration.NoodleGeneration
+api-version: 1.18
+description: Places random blocks under players' feet to provide a unique challenge
