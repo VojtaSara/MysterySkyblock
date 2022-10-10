@@ -29,7 +29,10 @@ public final class NoodleGeneration extends JavaPlugin implements Listener {
     public PlayerScores playerScores;
     @Override
     public void onEnable() {
+        // Load the playerscores from the default txt file.
         playerScores = new PlayerScores();
+        playerScores.loadFromFile("playerScores.txt");
+        System.out.println(playerScores.scoresTable.get("monibred"));
 
         // Plugin startup logic
         System.out.println("PLUGIN STARTED SUCCESFULLY");
