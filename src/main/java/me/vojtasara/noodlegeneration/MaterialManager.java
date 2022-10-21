@@ -14,6 +14,7 @@ public class MaterialManager {
     }
     private Material[] materialsList;
 
+    // Loads the materials from the "allowedMaterials" file provided by user
     public void loadMaterialsFromFile(){
         String fileName = "allowedMaterials.txt";
         File f = new File(fileName);

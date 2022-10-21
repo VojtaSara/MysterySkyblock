@@ -14,6 +14,7 @@ public class PlayerScores {
     private final int startingAmount = 100;
     public Hashtable<String,Integer> scoresTable = new Hashtable<String,Integer>();
 
+    // Loads player scores table from file - to make this data persistent across server reloads
     public void loadFromFile(String fileName){
         File f = new File(fileName);
         if (!f.exists() || f.isDirectory()) {

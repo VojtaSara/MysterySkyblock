@@ -17,7 +17,6 @@ import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 
 import java.util.List;
-import java.util.Random;
 
 public final class NoodleGeneration extends JavaPlugin implements Listener {
     public PlayerScores playerScores;
@@ -32,12 +31,12 @@ public final class NoodleGeneration extends JavaPlugin implements Listener {
         playerScores.loadFromFile("playerScores.txt");
         System.out.println(playerScores.scoresTable.get("monibred"));
 
-        // Plugin startup logic
         System.out.println("PLUGIN STARTED SUCCESFULLY");
 
         getServer().getPluginManager().registerEvents(this, this);
     }
 
+    // When the server is abruptly closed, save all players' scores
     @Override
     public void onDisable() {
         List<Player> players = (List<Player>) Bukkit.getOnlinePlayers();
@@ -72,7 +71,6 @@ public final class NoodleGeneration extends JavaPlugin implements Listener {
     /**
      * Initializes the player scoreboard - a permanent GUI element visible on screen displaying how many points
      * does the player have
-     * @param player
      */
     private void initializeScoreboard(Player player) {
         if (player.getScoreboard().getObjective("pointBalance") == null) {
@@ -85,6 +83,7 @@ public final class NoodleGeneration extends JavaPlugin implements Listener {
             player.setScoreboard(sc);
         }
     }
+    // When the player respawns, give him back the Underblocker he lost upon death
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onPlayerRespawn(PlayerRespawnEvent e) {
         ItemStack theUnderblocker = new ItemStack(Material.STICK);
@@ -95,6 +94,7 @@ public final class NoodleGeneration extends JavaPlugin implements Listener {
         e.getPlayer().getInventory().addItem(theUnderblocker);
     }
 
+    // When player moves, check whether there is space below him and if he is wielding the Underblocker
     @EventHandler
     public void onPlayerMoveEvent(PlayerMoveEvent event){
         if (event.getPlayer().getLocation().add(0,-1,0).getBlock().getType() == Material.AIR && playerHoldingTheUnderblocker(event.getPlayer())) {
@@ -106,6 +106,7 @@ public final class NoodleGeneration extends JavaPlugin implements Listener {
         }
     }
 
+    // When the player sends the command "sell" in chat, items in his hand get transformed into money
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
@@ -115,16 +116,7 @@ public final class NoodleGeneration extends JavaPlugin implements Listener {
             Score score = player.getScoreboard().getObjective("pointBalance").getScore("Points: ");
             score.setScore(score.getScore() + itemsInHand);
         }
-
-        if (event.getMessage().equals("getstick")){
-            ItemStack theUnderblocker = new ItemStack(Material.STICK);
-            ItemMeta meta = (ItemMeta) theUnderblocker.getItemMeta();
-            meta.setDisplayName("The Underblocker");
-            theUnderblocker.setItemMeta(meta);
-            event.getPlayer().getWorld().dropItemNaturally(event.getPlayer().getLocation(), theUnderblocker);
-        }
     }
-
 
     private boolean playerHoldingTheUnderblocker(Player player) {
         if (player.getInventory().getItemInMainHand().getItemMeta() != null){
@@ -135,13 +127,10 @@ public final class NoodleGeneration extends JavaPlugin implements Listener {
         }
     }
 
+    // Calls the material manager to choose a random block to place beneath player
     private Material randomBlock() {
         Material[] choices = materialManager.getChoices();
         int choice = (int) (Math.random() * choices.length);
         return choices[choice];
     }
-    private Material totallyRandomBlock() {
-        return Material.values()[new Random().nextInt(Material.values().length)];
-    }
-
 }
