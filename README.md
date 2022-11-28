@@ -17,6 +17,7 @@ Be careful where you step and carefully manage the blocks you place - if you pla
 
 ## Installation
 
-Create a directory with a Spigot server. For the world, an empty world is the best, but it is up to you. Once you put chosen world to the world folder, add the "MysterySkyblock.jar" file into the plugins folder and you are set! If you want to define what blocks you want to include in the mystery generation, add a file "allowedMaterials.txt" into the server folder with your chosen materials. A carefully picked mix can be found in this repository (file "allowedMaterials.txt") - if you just want to plug in and play.
-![image](https://user-images.githubusercontent.com/46105170/197217121-cacf950a-e6c7-45ec-b8b9-71395fd438f8.png)
+Create a directory with a Spigot server. For the world, an empty world is the best, but it is up to you. Once you put chosen world to the world folder, add the "MysterySkyblock.jar" file into the plugins folder and you are set! If you want to define what blocks you want to include in the mystery generation, add files to a folder called /modes/ in your server root directory and add files with block lists. Premade block lists are included in the folder /modes/ in this repository.
+
+![explorer_OdGMdHDGuf](https://user-images.githubusercontent.com/46105170/204289880-9c5ccf5a-9f33-4534-a612-3626860cd279.gif)
 
