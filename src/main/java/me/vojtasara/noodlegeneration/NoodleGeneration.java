@@ -116,6 +116,15 @@ public final class NoodleGeneration extends JavaPlugin implements Listener {
             Score score = player.getScoreboard().getObjective("pointBalance").getScore("Points: ");
             score.setScore(score.getScore() + itemsInHand);
         }
+        else if (event.getMessage().equals("list materials")){
+            materialManager.listMaterials(event);
+        }
+        else if (event.getMessage().equals("list modes")){
+            materialManager.listModes(event);
+        }
+        else if (event.getMessage().split(" ")[0].equals("select")){
+            materialManager.selectMode(event);
+        }
     }
 
     private boolean playerHoldingTheUnderblocker(Player player) {
