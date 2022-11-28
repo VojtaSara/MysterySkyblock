@@ -15,9 +15,13 @@ On first start, you have 100 points. You can spend these to place random blocks 
 
 Be careful where you step and carefully manage the blocks you place - if you place blocks recklessly it's possible to run out and lose entirely!
 
+## Mode selection
+If you want to change modes (block palettes), simply write "list modes" and then use "select x" to choose the mode. Command "list materials" tells you what materials are included in the current mode.
+![explorer_OdGMdHDGuf](https://user-images.githubusercontent.com/46105170/204289880-9c5ccf5a-9f33-4534-a612-3626860cd279.gif)
+
 ## Installation
 
 Create a directory with a Spigot server. For the world, an empty world is the best, but it is up to you. Once you put chosen world to the world folder, add the "MysterySkyblock.jar" file into the plugins folder and you are set! If you want to define what blocks you want to include in the mystery generation, add files to a folder called /modes/ in your server root directory and add files with block lists. Premade block lists are included in the folder /modes/ in this repository.
 
-![explorer_OdGMdHDGuf](https://user-images.githubusercontent.com/46105170/204289880-9c5ccf5a-9f33-4534-a612-3626860cd279.gif)
+
 
