@@ -17,6 +17,7 @@ Be careful where you step and carefully manage the blocks you place - if you pla
 
 ## Mode selection
 If you want to change modes (block palettes), simply write "list modes" and then use "select x" to choose the mode. Command "list materials" tells you what materials are included in the current mode.
+
 ![explorer_OdGMdHDGuf](https://user-images.githubusercontent.com/46105170/204289880-9c5ccf5a-9f33-4534-a612-3626860cd279.gif)
 
 ## Installation
