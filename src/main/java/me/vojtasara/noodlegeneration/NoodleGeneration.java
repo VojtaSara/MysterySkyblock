@@ -33,9 +33,8 @@ public final class NoodleGeneration extends JavaPlugin implements Listener {
         // Load the playerscores from the default txt file.
         playerScores = new PlayerScores();
         playerScores.loadFromFile(Globals.playerScoresFileName);
-        System.out.println(playerScores.scoresTable.get("monibred"));
 
-        System.out.println("PLUGIN STARTED SUCCESFULLY");
+        System.out.println("PLUGIN MYSTERYSKYBLOCK STARTED SUCCESFULLY");
 
         getServer().getPluginManager().registerEvents(this, this);
     }
