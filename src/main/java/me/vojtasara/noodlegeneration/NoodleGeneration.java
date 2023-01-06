@@ -18,6 +18,10 @@ import org.bukkit.scoreboard.Scoreboard;
 
 import java.util.List;
 
+public class Globals {
+    public static String playerScoresFileName = "playerScores.txt";
+}
+
 public final class NoodleGeneration extends JavaPlugin implements Listener {
     public PlayerScores playerScores;
     public MaterialManager materialManager;
@@ -28,7 +32,7 @@ public final class NoodleGeneration extends JavaPlugin implements Listener {
 
         // Load the playerscores from the default txt file.
         playerScores = new PlayerScores();
-        playerScores.loadFromFile("playerScores.txt");
+        playerScores.loadFromFile(Globals.playerScoresFileName);
         System.out.println(playerScores.scoresTable.get("monibred"));
 
         System.out.println("PLUGIN STARTED SUCCESFULLY");
@@ -44,7 +48,7 @@ public final class NoodleGeneration extends JavaPlugin implements Listener {
              players) {
             playerScores.savePlayerScore(p);
         }
-        playerScores.saveToFile("playerScores.txt");
+        playerScores.saveToFile(Globals.playerScoresFileName);
     }
 
     @EventHandler
